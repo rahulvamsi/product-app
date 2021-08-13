@@ -30,9 +30,9 @@
 	</distributionManagement>
 	
 	<scm>
-		<connection>scm:git:git@github.com:krishnamurthypradeep/devops-infrastructure.git</connection>
-		<developerConnection>scm:git:git@github.com:krishnamurthypradeep/devops-infrastructure.git</developerConnection>
-		<url>git@github.com:krishnamurthypradeep/devops-infrastructure.git</url>
+		<connection>scm:git:git@github.com:rahulvamsi/product-app.git</connection>
+		<developerConnection>scm:git:git@github.com:rahulvamsi/product-app.git</developerConnection>
+		<url>git@github.com:rahulvamsi/product-app.git</url>
 		<tag>v0.0.1</tag>
 	</scm>
 	<dependencies>
