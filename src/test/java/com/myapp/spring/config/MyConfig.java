@@ -36,7 +36,7 @@ HikariDataSource dataSource = new HikariDataSource();
 
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 
-        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/devops");
+        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/devops1");
 
         dataSource.setUsername("root");
 
