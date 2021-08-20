@@ -4,7 +4,7 @@ def mvnHome
 
 stage('Prepare') {
 
-git url: 'git@github.com:rahulvamsi/product-app.git', branch: 'develop'
+git url: 'git@github.com:Debraj68/product-app.git', branch: 'develop'
 
 mvnHome = tool 'mvn'
 
@@ -50,14 +50,16 @@ bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean verify/)
 
 stage('Deploy') {
 
-bat 'curl -u jenkins:jenkins -T target/**.war "http://localhost:5050/manager/text/deploy?path=/ibmdevops&update=true"'
+sh 'curl -u jenkins:jenkins -T target/**.war "http://localhost:5050/manager/text/deploy?path=/ibmdevops&update=true"'
 
 }
 
 stage("Smoke Test"){
 
-bat '"curl --retry-delay 10 --retry 5 http://localhost:5050/ibmdevops/api/v1/products"'
+sh "curl --retry-delay 10 --retry 5 http://localhost:5050/ibmdevops/api/v1/products"
 
 }
 
 }
+
+
