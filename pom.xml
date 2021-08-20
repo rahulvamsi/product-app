@@ -4,23 +4,20 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.3</version>
+		<version>2.4.2</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>product-app</groupId>
+	<groupId>com.example</groupId>
 	<artifactId>product-app</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<name>product-app</name>
+	<version>0.0.3-SNAPSHOT</version>
 	<packaging>war</packaging>
+	<name>product-app</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<surefire.version>2.17</surefire.version>
-		<jetty.port>9090</jetty.port>
-
-<jetty.stop.port>9999</jetty.stop.port>
-<thucydides.version>1.8.4</thucydides.version>
 	</properties>
+	
 	<distributionManagement>
 		<repository>
 			<id>release</id>
@@ -38,13 +35,9 @@
 		<connection>scm:git:git@github.com:rahulvamsi/product-app.git</connection>
 		<developerConnection>scm:git:git@github.com:rahulvamsi/product-app.git</developerConnection>
 		<url>git@github.com:rahulvamsi/product-app.git</url>
-		<tag>product-app-0.0.1</tag>
+		<tag>v0.0.1</tag>
 	</scm>
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -56,20 +49,16 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			
 			<exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                </exclusion>
-            </exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-		 <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jetty</artifactId>
-            <scope>provided</scope>
-        </dependency> 
-        
-        
+		
+		
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -80,12 +69,22 @@
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
+			<!-- <scope>provided</scope> -->
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
 		</dependency>
 	</dependencies>
 
@@ -96,7 +95,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			
-			 <plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
 				<version>3.0.0-M1</version>
@@ -104,14 +103,14 @@
 					<tagNameFormat>v@{project.version}</tagNameFormat>
 					<autoVersionSubmodules>true</autoVersionSubmodules>
 				</configuration>
-			</plugin> 
-			
-			<plugin>
+			</plugin>
+	<plugin>
   <groupId>org.apache.maven.plugins</groupId>
   <artifactId>maven-surefire-plugin</artifactId>
-
-</plugin>
-			<plugin>
+  </plugin>
+			
+			
+			 <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.6</version>
@@ -155,47 +154,7 @@
                     </excludes>
                 </configuration>
             </plugin>
-			
-		<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>3.2.2</version>
-            </plugin>
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.4.14.v20181114</version>
-            </plugin>	
-<plugin>
-
-<groupId>net.serenity-bdd.maven.plugins</groupId>
-
-<artifactId>serenity-maven-plugin</artifactId>
-
-<version>${thucydides.version}</version>
-
-<executions>
-
-<execution>
-
-<id>serenity-reports</id>
-
-<phase>post-integration-test</phase>
-
-<goals>
-
-<goal>aggregate</goal>
-
-</goals>
-
-</execution>
-
-</executions>
-
-</plugin>
-
 		</plugins>
-		
 	</build>
 
 </project>
