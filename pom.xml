@@ -18,7 +18,7 @@
 		<thucydides.version>1.8.4</thucydides.version>
 		<jetty.port>9090</jetty.port>
 		<jetty.stop.port>9999</jetty.stop.port>
-		<surefire.version>2.17</surefire.version>
+		<!-- <surefire.version>2.17</surefire.version> -->
 	</properties>
 	
 	<distributionManagement>
